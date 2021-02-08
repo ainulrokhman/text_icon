@@ -59,15 +59,16 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: [
                   Flexible(
-                    child: Center(
+                    child: Container(
+                      padding: EdgeInsets.only(top: 20),
                       child: TestSlider(
                         data: _product,
                       ),
                     ),
-                    flex: 2,
+                    flex: 1,
                   ),
                   Flexible(
-                    flex: 3,
+                    flex: 1,
                     child: Container(
                       padding: EdgeInsets.only(bottom: 10),
                       child: Column(

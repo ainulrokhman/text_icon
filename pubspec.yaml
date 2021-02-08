@@ -49,9 +49,9 @@ dev_dependencies:
   flutter_launcher_icons: ^0.8.1
 
 flutter_icons:
-  android: "launcher_icon"
+  android: true
   ios: true
-  image_path: "images/launcher.jpg"
+  image_path: "images/appstore.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -84,6 +84,8 @@ flutter:
     - images/whatsapp.jpg
     - images/youtube.jpg
     - images/web.jpg
+    - images/launcher.jpg
+    - images/appstore.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

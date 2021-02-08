@@ -38,7 +38,15 @@ class Medsos extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: 15),
                     child: Row(
                       children: [
-                        Image.asset("images/logo_denature.jpg"),
+                        Container(
+                          width: 75,
+                          height: 75,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                                image: AssetImage("images/launcher.jpg")),
+                          ),
+                        ),
                         Container(
                           padding: EdgeInsets.only(left: 20),
                           child: Column(
@@ -110,35 +118,7 @@ class Medsos extends StatelessWidget {
                           flex: 1,
                         ),
                         Flexible(
-                          child: Container(
-                              // child: Column(
-                              //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              //   children: [
-                              //     Text(
-                              //       "Share Us",
-                              //       style: TextStyle(
-                              //         fontWeight: FontWeight.bold,
-                              //         fontSize: 18,
-                              //         color: Colors.green[600],
-                              //       ),
-                              //     ),
-                              //     Row(
-                              //       mainAxisAlignment:
-                              //           MainAxisAlignment.spaceEvenly,
-                              //       children: [
-                              //         _share(
-                              //           image: "whatsapp.jpg",
-                              //           url: "https://twitter.com",
-                              //         ),
-                              //         _share(
-                              //           image: "twitter.png",
-                              //           url: "https://twitter.com",
-                              //         ),
-                              //       ],
-                              //     )
-                              //   ],
-                              // ),
-                              ),
+                          child: Container(),
                           flex: 2,
                         ),
                       ],
@@ -152,21 +132,6 @@ class Medsos extends StatelessWidget {
       )),
     );
   }
-
-  // Widget _share({
-  //   @required String image,
-  //   @required String url,
-  // }) {
-  //   return Flexible(
-  //     child: FlatButton(
-  //       onPressed: () => launchWhatsApp(url: url),
-  //       child: Image.asset(
-  //         "images/$image",
-  //         width: 50,
-  //       ),
-  //     ),
-  //   );
-  // }
 
   Widget _buildMedsos({
     @required String title,
@@ -215,11 +180,18 @@ class Medsos extends StatelessWidget {
           Container(
             padding: EdgeInsets.symmetric(vertical: 15),
             child: FlatButton(
-                onPressed: () {
-                  launchWhatsApp(url: url);
-                },
-                color: Colors.transparent,
-                child: Image.asset("images/$image")),
+              onPressed: () {
+                launchWhatsApp(url: url);
+              },
+              color: Colors.transparent,
+              child: Container(
+                width: 50,
+                height: 50,
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(image: AssetImage("images/$image"))),
+              ),
+            ),
           ),
         ],
       ),

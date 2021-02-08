@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 
 class DiagnosaTangan extends StatefulWidget {
-  final data, img;
-  DiagnosaTangan({this.data, this.img});
+  final data, img, title;
+  DiagnosaTangan({this.data, this.img, this.title});
   @override
   _DiagnosaTanganState createState() => _DiagnosaTanganState();
 }
@@ -49,11 +49,9 @@ class _DiagnosaTanganState extends State<DiagnosaTangan> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        child: AppBar(
-          backgroundColor: Colors.green,
-        ),
-        preferredSize: Size.fromHeight(0),
+      appBar: AppBar(
+        title: Text(widget.title),
+        backgroundColor: Colors.green,
       ),
       body: Container(
         child: Column(

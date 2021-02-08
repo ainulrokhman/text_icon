@@ -32,11 +32,9 @@ class _SertifikatState extends State<Sertifikat> {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: PreferredSize(
-        child: AppBar(
-          backgroundColor: Colors.green,
-        ),
-        preferredSize: Size.fromHeight(0),
+      appBar: AppBar(
+        backgroundColor: Colors.green,
+        title: Text("Prestasi Perusahaan"),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -47,7 +45,7 @@ class _SertifikatState extends State<Sertifikat> {
               padding: EdgeInsets.only(bottom: 30),
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("images/main_bg.png"),
+                  image: AssetImage("images/main_bg.jpg"),
                   fit: BoxFit.fill,
                 ),
               ),

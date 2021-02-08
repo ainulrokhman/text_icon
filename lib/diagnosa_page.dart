@@ -12,11 +12,9 @@ class _DiagnosaState extends State<Diagnosa> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        child: AppBar(
-          backgroundColor: Colors.green,
-        ),
-        preferredSize: Size.fromHeight(0),
+      appBar: AppBar(
+        backgroundColor: Colors.green,
+        title: Text("Diagnosa"),
       ),
       body: Container(
         padding: EdgeInsets.all(25),
@@ -54,6 +52,7 @@ class _DiagnosaState extends State<Diagnosa> {
                               return DiagnosaTangan(
                                 data: widget.data['mata'],
                                 img: "diagnosa_mata.jpg",
+                                title: "Diagnosa Mata",
                               );
                             }),
                           );
@@ -97,6 +96,7 @@ class _DiagnosaState extends State<Diagnosa> {
                               return DiagnosaTangan(
                                 data: widget.data['tangan'],
                                 img: "diagnosa_tangan.jpg",
+                                title: "Diagnosa Tangan",
                               );
                             }),
                           );
