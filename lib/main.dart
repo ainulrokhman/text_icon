@@ -1,11 +1,11 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:progress_dialog/progress_dialog.dart';
+import 'package:text_icon/chat_page.dart';
 import 'package:text_icon/home_page.dart';
 import 'package:text_icon/article_page.dart';
 import 'package:text_icon/event_page.dart';
 import 'package:text_icon/medsos.dart';
-import 'package:text_icon/review_page.dart';
 import 'package:ff_navigation_bar/ff_navigation_bar.dart';
 
 void main() {
@@ -34,8 +34,8 @@ class _MyAppState extends State<MyApp> {
 
             snapshot.value.forEach((k, v) {
               switch (k) {
-                case "review":
-                  _widget[0] = Review(data: v);
+                case "konsultan":
+                  _widget[0] = Chat(data: v);
                   break;
                 case "artikel":
                   _widget[1] = Article(data: v);
@@ -99,8 +99,8 @@ class _MyAppState extends State<MyApp> {
           },
           items: [
             FFNavigationBarItem(
-              iconData: Icons.people,
-              label: 'Review',
+              iconData: Icons.message,
+              label: 'Pesan',
             ),
             FFNavigationBarItem(
               iconData: Icons.article,

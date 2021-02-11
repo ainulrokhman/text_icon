@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:text_icon/profile_page.dart';
 import 'package:text_icon/product_page.dart';
 import 'package:text_icon/diagnosa_page.dart';
+import 'package:text_icon/review_page.dart';
 import 'package:text_icon/sertifikat_page.dart';
 import 'package:text_icon/test_slider.dart';
 
@@ -13,7 +14,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var _product, _profile, _sertifikat, _diagnosa;
+  var _product, _profile, _sertifikat, _diagnosa, _review;
 
   _database() {
     widget.data.forEach((key, value) {
@@ -31,6 +32,9 @@ class _HomePageState extends State<HomePage> {
           case "diagnosa":
             _diagnosa = value;
             break;
+          case "review":
+            _review = value;
+            break;
           default:
             break;
         }
@@ -47,71 +51,77 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: new Column(
-          children: [
-            Container(
-              child: Image.asset(
-                "images/header_main.jpg",
-              ),
+        body: Container(
+      child: new Column(
+        children: [
+          Container(
+            child: Image.asset(
+              "images/header_main.jpg",
             ),
-            Flexible(
-              child: Column(
-                children: [
-                  Flexible(
-                    child: Container(
-                      padding: EdgeInsets.only(top: 20),
-                      child: TestSlider(
-                        data: _product,
-                      ),
-                    ),
-                    flex: 1,
-                  ),
-                  Flexible(
-                    flex: 1,
-                    child: Container(
-                      padding: EdgeInsets.only(bottom: 10),
-                      child: Column(
-                        children: [
-                          ButtonMenu(
-                            text: "COMPANY PROFILE",
-                            icon: "ic_profile",
-                            widget: Profile(
-                              data: _profile,
-                            ),
-                          ),
-                          ButtonMenu(
-                            text: "DIAGNOSA PENYAKIT",
-                            icon: "ic_diagnosa",
-                            widget: Diagnosa(
-                              data: _diagnosa,
-                            ),
-                          ),
-                          ButtonMenu(
-                            text: "LIST PRODUK",
-                            icon: "ic_produk",
-                            widget: Product(
-                              data: _product,
-                            ),
-                          ),
-                          ButtonMenu(
-                            text: "PRESTASI PERUSAHAAN",
-                            icon: "ic_prestasi",
-                            widget: Sertifikat(
-                              data: _sertifikat,
-                            ),
-                          ),
-                        ],
-                      ),
+          ),
+          Flexible(
+            child: Column(
+              children: [
+                Flexible(
+                  child: Container(
+                    padding: EdgeInsets.only(top: 20),
+                    child: TestSlider(
+                      data: _product,
                     ),
                   ),
-                ],
-              ),
-            )
-          ],
-        ),
+                  flex: 2,
+                ),
+                Flexible(
+                  flex: 3,
+                  child: Container(
+                    padding: EdgeInsets.only(bottom: 10),
+                    child: Column(
+                      children: [
+                        ButtonMenu(
+                          text: "COMPANY PROFILE",
+                          icon: "ic_profile",
+                          widget: Profile(
+                            data: _profile,
+                          ),
+                        ),
+                        ButtonMenu(
+                          text: "DIAGNOSA PENYAKIT",
+                          icon: "ic_diagnosa",
+                          widget: Diagnosa(
+                            data: _diagnosa,
+                          ),
+                        ),
+                        ButtonMenu(
+                          text: "LIST PRODUK",
+                          icon: "ic_produk",
+                          widget: Product(
+                            data: _product,
+                          ),
+                        ),
+                        ButtonMenu(
+                          text: "PRESTASI PERUSAHAAN",
+                          icon: "ic_prestasi",
+                          widget: Sertifikat(
+                            data: _sertifikat,
+                          ),
+                        ),
+                        ButtonMenu(
+                          text: "REVIEW",
+                          icon: "ic_review",
+                          widget: Review(
+                            data: _review,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
       ),
-    );
+    ));
   }
 }
 

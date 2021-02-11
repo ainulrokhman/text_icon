@@ -23,6 +23,10 @@ class _ReviewState extends State<Review> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Review Pasien"),
+        backgroundColor: Colors.green,
+      ),
       body: Container(
         child: ListView.builder(
             itemCount: review.length,
