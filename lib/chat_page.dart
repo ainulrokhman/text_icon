@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Chat extends StatefulWidget {
   final Map<dynamic, dynamic> data;
@@ -15,7 +18,9 @@ class _ChatState extends State<Chat> {
   var etSearch = TextEditingController();
   Icon _searchIcon = Icon(Icons.search);
   Widget _appBarTitle = FittedBox(
-      fit: BoxFit.fill, child: new Text('Chat Bersama Konsultan Herbal'));
+    fit: BoxFit.fill,
+    child: new Text('Chat Bersama Konsultan Herbal'),
+  );
 
   _searchPressed() {
     setState(() {
@@ -49,11 +54,33 @@ class _ChatState extends State<Chat> {
   @override
   void initState() {
     konsultan = new List();
+    List<dynamic> dummy = new List();
+    List<int> arr = new List();
     widget.data.forEach((key, value) {
-      konsultan.add(value);
+      dummy.add(value);
     });
-    konsultan..sort((a, b) => a['nama'].compareTo(b['nama']));
+
+    for (var i = 0; i < 10; i++) {
+      random(dummy.length, arr);
+    }
+
+    for (var item in arr) {
+      konsultan.add(dummy[item]);
+    }
     super.initState();
+  }
+
+  void random(int size, List i) {
+    int rand = Random().nextInt(size);
+    if (i.isEmpty) {
+      i.add(rand);
+    } else {
+      if (!i.contains(rand)) {
+        i.add(rand);
+      } else {
+        random(size, i);
+      }
+    }
   }
 
   @override
@@ -128,10 +155,10 @@ class _ChatState extends State<Chat> {
                             textAlign: TextAlign.left,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: 16,
+                              fontSize: 14,
                             ),
                           ),
-                          Text(item['wa'], textAlign: TextAlign.left),
+                          Text("0${item['wa']}", textAlign: TextAlign.left),
                         ],
                       ),
                     ),
@@ -142,9 +169,9 @@ class _ChatState extends State<Chat> {
                         borderRadius: BorderRadius.circular(8),
                       ),
                       color: Colors.orange[900],
-                      onPressed: () {
-                        print(item['nama']);
-                      },
+                      onPressed: () async => await launch(
+                          "https://wa.me/62${item['wa']}?text=Hallo%2C%20konsultan%20herbal%20denature%3f",
+                          forceSafariVC: false),
                       child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 8),
                           child: Column(

@@ -68,25 +68,26 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
-    - images/header_main.jpg
-    - images/main_bg.jpg
-    - images/diagnosa.jpg
-    - images/diagnosa_tangan.jpg
-    - images/diagnosa_mata.jpg
-    - images/ic_diagnosa.jpg
-    - images/ic_prestasi.jpg
-    - images/ic_produk.jpg
-    - images/ic_profile.jpg
-    - images/ic_review.jpg
-    - images/logo_denature.jpg
-    - images/facebook.jpg
-    - images/instagram.jpg
-    - images/twitter.jpg
-    - images/whatsapp.jpg
-    - images/youtube.jpg
-    - images/web.jpg
-    - images/launcher.jpg
-    - images/appstore.png
+    - images/
+    # - images/header_main.jpg
+    # - images/main_bg.jpg
+    # - images/diagnosa.jpg
+    # - images/diagnosa_tangan.jpg
+    # - images/diagnosa_mata.jpg
+    # - images/ic_diagnosa.jpg
+    # - images/ic_prestasi.jpg
+    # - images/ic_produk.jpg
+    # - images/ic_profile.jpg
+    # - images/ic_review.jpg
+    # - images/logo_denature.jpg
+    # - images/facebook.jpg
+    # - images/instagram.jpg
+    # - images/twitter.jpg
+    # - images/whatsapp.jpg
+    # - images/youtube.jpg
+    # - images/web.jpg
+    # - images/launcher.jpg
+    # - images/appstore.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
