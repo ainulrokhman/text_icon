@@ -5,6 +5,7 @@ import 'package:text_icon/diagnosa_page.dart';
 import 'package:text_icon/review_page.dart';
 import 'package:text_icon/sertifikat_page.dart';
 import 'package:text_icon/test_slider.dart';
+import 'package:text_icon/toga_page.dart';
 
 class HomePage extends StatefulWidget {
   final data;
@@ -14,7 +15,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var _product, _profile, _sertifikat, _diagnosa, _review;
+  var _product, _profile, _sertifikat, _diagnosa, _review, _toga;
 
   _database() {
     widget.data.forEach((key, value) {
@@ -34,6 +35,9 @@ class _HomePageState extends State<HomePage> {
             break;
           case "review":
             _review = value;
+            break;
+          case "toga":
+            _toga = value;
             break;
           default:
             break;
@@ -75,43 +79,64 @@ class _HomePageState extends State<HomePage> {
                   flex: 3,
                   child: Container(
                     padding: EdgeInsets.only(bottom: 10),
-                    child: Column(
+                    child: Row(
                       children: [
-                        ButtonMenu(
-                          text: "COMPANY PROFILE",
-                          icon: "ic_profile",
-                          widget: Profile(
-                            data: _profile,
+                        Expanded(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              ButtonMenu(
+                                text: "COMPANY\nPROFILE",
+                                icon: "ic_profile",
+                                widget: Profile(
+                                  data: _profile,
+                                ),
+                              ),
+                              ButtonMenu(
+                                text: "DIAGNOSA\nPENYAKIT",
+                                icon: "ic_diagnosa",
+                                widget: Diagnosa(
+                                  data: _diagnosa,
+                                ),
+                              ),
+                              ButtonMenu(
+                                text: "LIST PRODUK",
+                                icon: "ic_produk",
+                                widget: Product(
+                                  data: _product,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                        ButtonMenu(
-                          text: "DIAGNOSA PENYAKIT",
-                          icon: "ic_diagnosa",
-                          widget: Diagnosa(
-                            data: _diagnosa,
+                        Expanded(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              ButtonMenu(
+                                text: "PRESTASI\nPERUSAHAAN",
+                                icon: "ic_prestasi",
+                                widget: Sertifikat(
+                                  data: _sertifikat,
+                                ),
+                              ),
+                              ButtonMenu(
+                                text: "REVIEW",
+                                icon: "ic_review",
+                                widget: Review(
+                                  data: _review,
+                                ),
+                              ),
+                              ButtonMenu(
+                                text: "TOGA",
+                                icon: "ic_review",
+                                widget: Toga(
+                                  data: _toga,
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                        ButtonMenu(
-                          text: "LIST PRODUK",
-                          icon: "ic_produk",
-                          widget: Product(
-                            data: _product,
-                          ),
-                        ),
-                        ButtonMenu(
-                          text: "PRESTASI PERUSAHAAN",
-                          icon: "ic_prestasi",
-                          widget: Sertifikat(
-                            data: _sertifikat,
-                          ),
-                        ),
-                        ButtonMenu(
-                          text: "REVIEW",
-                          icon: "ic_review",
-                          widget: Review(
-                            data: _review,
-                          ),
-                        ),
+                        )
                       ],
                     ),
                   ),
@@ -133,51 +158,51 @@ class ButtonMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Expanded(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 5),
-        child: RaisedButton(
-          onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-              return widget;
-            }));
-          },
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-          padding: EdgeInsets.all(0.0),
-          child: Ink(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Colors.green[900], Colors.lime],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              ),
-              borderRadius: BorderRadius.circular(30.0),
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 1, vertical: 5),
+      child: RaisedButton(
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+            return widget;
+          }));
+        },
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+        padding: EdgeInsets.all(0.0),
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.green[900], Colors.lime],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
             ),
-            child: Row(
-              children: [
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
-                  child: Container(
-                    width: 50,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                        fit: BoxFit.fill,
-                        image: AssetImage("images/$icon.jpg"),
-                      ),
+            borderRadius: BorderRadius.circular(30.0),
+          ),
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
+                child: Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image: AssetImage("images/$icon.jpg"),
                     ),
                   ),
                 ),
-                Container(
-                    alignment: Alignment.center,
-                    child: Text(
-                      text,
-                      style: TextStyle(color: Colors.white),
-                    ))
-              ],
-            ),
+              ),
+              Container(
+                alignment: Alignment.center,
+                child: Text(
+                  text,
+                  style: TextStyle(color: Colors.white),
+                ),
+              )
+            ],
           ),
         ),
       ),

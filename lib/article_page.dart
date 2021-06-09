@@ -1,5 +1,3 @@
-// import 'dart:html';
-
 import 'package:flutter/material.dart';
 
 class Article extends StatefulWidget {
@@ -126,11 +124,9 @@ class Detail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        child: AppBar(
-          backgroundColor: Colors.green,
-        ),
-        preferredSize: Size.fromHeight(0),
+      appBar: AppBar(
+        backgroundColor: Colors.green,
+        title: Text(data['title']),
       ),
       body: Container(
           child: Hero(
